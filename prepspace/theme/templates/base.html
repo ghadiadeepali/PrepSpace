@@ -1,19 +1,42 @@
 {% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    <title>Django Tailwind</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-	</head>
+<head>
+  <title>PrepSpace</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {% tailwind_css %}
+</head>
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
-	</body>
+<body class="bg-gray-100">
+  <!-- Always shown: Navbar -->
+  <nav class="p-3 flex justify-between items-center">
+    <a href="/"><img src="{% static 'images/logo.png' %}" alt="PrepSpace Logo" class="h-20 w-max"></a>
+    <div class="flex flex-col items-center">
+      <span class="text-5xl font-bold leading-tight">PrepSpace</span>
+      <span class="text-center">Your Personal Productivity Workspace</span>
+    </div>
+    <a href="#"><img src="{% static 'images/profile.png' %}" alt="Profile" class="h-16 w-max"></a>
+  </nav>
+
+  <!-- Always shown: Navigation Buttons -->
+  <div class="flex text-center p-3">
+    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2  border-blue-400 hover:border-blue-950">Dashboard</button>
+    <!-- <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">Syllabus</button> -->
+	<!-- replacing plain button with a button styled anchor tag to navigate to respective page when button is clicked -->
+	<a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="{% url 'syllabus' %}">Syllabus</a>
+	<!-- syllabus is the name of url defined in urls.py -->
+    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">To Do</button>
+    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">BrainDump</button> 
+    <!-- <button class="px-4 py-1  ">Login/Signup</button> -->
+  </div>
+
+
+  	
+
+  <!-- Only page-specific content goes here -->
+  {% block content %}
+  {% endblock %}
+</body>
 </html>
