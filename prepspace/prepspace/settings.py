@@ -135,6 +135,10 @@ USE_TZ = True
 # no need to do additional config becuase django looks for static folders inside each INSTALLED_APPS and works accordingly
 STATIC_URL = 'static/'
 
+# http://localhost:8000/static/images/profile.png
+# staic files url will start with static 
+# No need for theme/static becuase Django will look for staic folder inside each app mentioned under INSTALLED_APPS
+
 
 # If want to go for BASE_DIR/static then need to do this
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
