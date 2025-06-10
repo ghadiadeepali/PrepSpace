@@ -22,13 +22,13 @@
 
   <!-- Always shown: Navigation Buttons -->
   <div class="flex text-center p-3">
-    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2  border-blue-400 hover:border-blue-950">Dashboard</button>
+      <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="/">Dashboard</a>
     <!-- <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">Syllabus</button> -->
 	<!-- replacing plain button with a button styled anchor tag to navigate to respective page when button is clicked -->
-	<a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="{% url 'syllabus' %}">Syllabus</a>
+	  <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="{% url 'syllabus' %}">Syllabus</a>
 	<!-- syllabus is the name of url defined in urls.py -->
-    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">To Do</button>
-    <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">BrainDump</button> 
+    <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="#">To Do</a>
+    <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="#">Braindump</a>
     <!-- <button class="px-4 py-1  ">Login/Signup</button> -->
   </div>
 
