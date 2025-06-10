@@ -18,9 +18,21 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import dashboard
 from syllabus import urls
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ("", dashboard),
     path("syllabus", include(urls)), # include urls of syllabus app and the urlpattern in syllabus/{}
 ]
+
+# Serve media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+    
+# “When the URL starts with /media/ (from MEDIA_URL), look for the corresponding file inside the folder media/ (from MEDIA_ROOT).”
+# A user uploads image.jpg
+# Saved at: /your_project/media/subject_images/image.jpg
+# Accessible at: http://127.0.0.1:8000/media/subject_images/image.jpg
