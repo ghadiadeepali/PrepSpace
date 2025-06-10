@@ -2,7 +2,7 @@ from django.db import models
 
 class Subject(models.Model):
     subject_name = models.CharField(max_length=255)
-    image = models.ImageField(upload_to='', null=True, blank=True)
+    image = models.ImageField(upload_to='subject_images/', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
