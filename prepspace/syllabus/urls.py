@@ -16,10 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import syllabus_home
+from .views import syllabus_home, view_subject_details
 
 urlpatterns = [
     path('', syllabus_home, name='syllabus'),
     # name is used while we specify the url to be hit when we want to redirect to this page i.e syllabus_tracker/
+    path('/subject/<int:subject_id>',view_subject_details, name='subject_detail')
     
 ]
