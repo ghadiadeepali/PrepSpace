@@ -9,17 +9,31 @@
         {% for subject in subjects %}
         <!-- CARD USING FLEXBOX -->
         <div class="bg-blue-50 rounded-2xl shadow-lg px-4 py-6">
-            <div class="text-center border-2 border-blue-950  rounded-lg p-2 align-middle mx-auto w-1/3 min-w-[280px]">{{ subject.subject_name }}
+            <div class="text-center border-2 border-blue-950  rounded-lg p-2 align-middle mx-auto w-1/3 min-w-[280px]">{{ subject.subject_name }} 
             </div>
             <!-- <a><img src="{% static 'images/image.png' %}" alt="Profile" class="h-60 w-full mx-auto mt-3" ></a> -->
-            <img src="{% static 'images/image.png' %}" alt="Profile" class="h-60 w-full mx-auto mt-3" >
+            
+      
+            <!-- Consistent Image Container -->
+             <!-- If user clicks on image then choose image option should be available to upload new image -->
+            <div class="h-48 w-48 rounded-2xl overflow-hidden mx-auto my-3 bg-white flex items-center justify-center">
+                {% if subject.image %}
+                    <img src="{{ subject.image.url }}" alt="Subject Image" class="w-full h-full object-cover" />
+                {% else %}
+                    <img src="{% static 'images/image.png' %}" alt="Default Image" class="w-full h-full object-cover" />
+                {% endif %}
+            </div>
+
 
             <!-- progress bar -->
             <div class="bg-red-300  mb-3 mx-2 rounded-3xl px-1 text-center">Progress of subjects</div>
 
             <div class="flex flex-row justify-evenly rounded-md">
                 <!-- changing buttons to anchor tags styled as buttons -->
-                 <a href="#" class="bg-blue-300 px-5 py-1 rounded-xl border-2 border-blue-600">View</a>
+
+                <!-- on clicking view button, subject id needs to be passed through the url to the backend -->
+                 <!-- can directly specify the url to be hit using the url name specififed in urls.py -->
+                 <a href="{% url 'subject_detail' subject.id%}" class="bg-blue-300 px-5 py-1 rounded-xl border-2 border-blue-600">View</a>
                  <a href="#" class="bg-blue-300 px-5 py-1 rounded-xl border-2 border-blue-600">Edit</a>
                 <!-- <button class="bg-blue-400 p-2 mt-2">View Syllabus</button>
                 <button class="bg-blue-400 p-2 mt-2">Edit</button> -->
