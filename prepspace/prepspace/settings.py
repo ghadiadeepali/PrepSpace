@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,7 +132,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+# no need to do additional config becuase django looks for static folders inside each INSTALLED_APPS and works accordingly
 STATIC_URL = 'static/'
+
+
+# If want to go for BASE_DIR/static then need to do this
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Ensure this is in INSTALLED_APPS (you already have it):
+# 'django.contrib.staticfiles'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -143,3 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS  = ['127.0.0.1']
 NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'
+
+# media settings to save media files to BASE_DIR/media/subject_images or BASE_DIR/media/profile
+MEDIA_URL = '/media/'  # URL prefix to access uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Files will be stored here
