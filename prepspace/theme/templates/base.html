@@ -9,28 +9,34 @@
   {% tailwind_css %}
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-100 ">
   <!-- Always shown: Navbar -->
-  <nav class="p-3 flex justify-between items-center">
-    <a href="/"><img src="{% static 'images/logo.png' %}" alt="PrepSpace Logo" class="h-20 w-max"></a>
-    <div class="flex flex-col items-center">
-      <span class="text-5xl font-bold leading-tight">PrepSpace</span>
-      <span class="text-center">Your Personal Productivity Workspace</span>
-    </div>
-    <a href="#"><img src="{% static 'images/profile.png' %}" alt="Profile" class="h-16 w-max"></a>
-  </nav>
-
-  <!-- Always shown: Navigation Buttons -->
-  <div class="flex text-center p-3">
-      <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="/">Dashboard</a>
-    <!-- <button class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950">Syllabus</button> -->
-	<!-- replacing plain button with a button styled anchor tag to navigate to respective page when button is clicked -->
-	  <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="{% url 'syllabus' %}">Syllabus</a>
-	<!-- syllabus is the name of url defined in urls.py -->
-    <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="#">To Do</a>
-    <a class="px-4 py-1 mx-4 rounded-3xl border-x-4 border-b-2 border-blue-400  hover:border-blue-950" href="#">Braindump</a>
-    <!-- <button class="px-4 py-1  ">Login/Signup</button> -->
+  <div class="px-3  flex w-1/6 ">
+    <a href="/"><img src="{% static 'images/prepspace_logo.png' %}" alt="PrepSpace Logo" class="h-20 mt-3"></a>
   </div>
+
+  
+  <!-- Always shown: Navigation Buttons -->
+  <div class="flex flex-col  h-screen w-1/6 mt-4">
+      <a href="/" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+        <i data-lucide="home" class="w-5 h-5"></i>
+        <span>Home</span>
+      </a>
+      <a href="{% url 'syllabus_home'%}" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+        <i data-lucide="book-open" class="w-5 h-5"></i>
+        <span>Syllabus</span>
+      </a>
+      <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+        <i data-lucide="check-square" class="w-5 h-5"></i>
+        <span>To Do</span>
+      </a>
+      <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+        <i data-lucide="brain" class="w-5 h-5"></i>
+        <span>Braindump</span>
+      </a>
+
+  </div>
+      
 
 
   	
@@ -38,5 +44,11 @@
   <!-- Only page-specific content goes here -->
   {% block content %}
   {% endblock %}
+
+  <!-- lucide icons  -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
