@@ -19,7 +19,7 @@ from django.urls import path, include
 from .views import syllabus_home, view_subject_details
 
 urlpatterns = [
-    path('', syllabus_home, name='syllabus'),
+    path('', syllabus_home, name='syllabus_home'),
     # name is used while we specify the url to be hit when we want to redirect to this page i.e syllabus_tracker/
     path('/subject/<int:subject_id>',view_subject_details, name='subject_detail')
     
