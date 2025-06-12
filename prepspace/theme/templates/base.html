@@ -14,10 +14,21 @@
 <body class="bg-gray-100 ">
   <!-- Always shown: Navbar -->
 
- 
-    <div class="px-3  flex w-1/6 ">
-        <a href="/"><img src="{% static 'images/prepspace_logo.png' %}" alt="PrepSpace Logo" class="h-20 mt-3"></a>
-    </div>
+        <!-- Top bar -->
+        <div class="flex items-end justify-between px-6 py-4">
+            <!-- Logo -->
+            <div class="w-auto">
+                <a href="/"><img src="{% static 'images/prepspace_logo.png' %}" alt="PrepSpace Logo" class="h-20"></a>
+            </div>
+
+            <!-- Header Right Block -->
+            <div>
+                {% block header_right %}
+                {% endblock %}
+            </div>
+        </div>
+
+    
 
     <!-- wrapper for sidebar and content on its right -->
     <div class="flex">
