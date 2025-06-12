@@ -13,7 +13,21 @@
 
   <div class="mt-3 ml-4 space-y-2">
     {% for topic in subject.topics.all %}
-      <div class="text-sm pl-2 border-l-4 border-blue-300">{{ topic.topic_name }}</div>
+        <div class="text-sm pl-2 border-l-4 border-blue-300">
+            <div class="flex justify-between">
+                {{ topic.topic_name }}
+                <!-- name is a form-filed name that will be sent to django in request.POST -->
+                 <!-- value=on ==> on is sent if checkbox is checked else none -->
+                  <!-- hx-include="this -> Include this checkbox’s name and value in the POST request payload.else it would send nothing -->
+                <input type="checkbox" name="is_completed" value="on" hx-post="{% url 'update_topic_status' topic.id %}" hx-trigger="change" hx-swap="none" hx-include="this" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="form-checkbox h-5 w-5 text-gray-500 border-gray-300 checked:border-green-500 checked:text-green-600 transition duration-200"
+            {% if topic.is_completed %}checked{% endif %}/>
+            <!-- If topic.is_completed == True, then add checked to the checkbox.
+             It determines whether the checkbox (or radio) is selected when the page loads
+             This is done to show checked boxes when the page reloads 
+             <input type="checkbox" checked> It renders like this-->
+            </div>
+
+        </div>
     {% endfor %}
   </div>
 </details>
