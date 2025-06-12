@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path ("", dashboard),
-    path("syllabus", include(urls)), # include urls of syllabus app and the urlpattern in syllabus/{}
+    path("syllabus/", include(urls)), # include urls of syllabus app and the urlpattern in syllabus/{}
 ]
 
 # Serve media files during development
