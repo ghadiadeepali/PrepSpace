@@ -11,40 +11,42 @@
 
 <body class="bg-gray-100 ">
   <!-- Always shown: Navbar -->
-  <div class="px-3  flex w-1/6 ">
-    <a href="/"><img src="{% static 'images/prepspace_logo.png' %}" alt="PrepSpace Logo" class="h-20 mt-3"></a>
-  </div>
 
+ 
+    <div class="px-3  flex w-1/6 ">
+        <a href="/"><img src="{% static 'images/prepspace_logo.png' %}" alt="PrepSpace Logo" class="h-20 mt-3"></a>
+    </div>
+
+    <!-- wrapper for sidebar and content on its right -->
+    <div class="flex">
+
+        <div class="flex flex-col  h-screen w-1/6 mt-4">
+            <a href="/" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span>Home</span>
+            </a>
+            <a href="{% url 'syllabus_home'%}" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+                <i data-lucide="book-open" class="w-5 h-5"></i>
+                <span>Syllabus</span>
+            </a>
+            <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+                <i data-lucide="check-square" class="w-5 h-5"></i>
+                <span>To Do</span>
+            </a>
+            <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
+                <i data-lucide="brain" class="w-5 h-5"></i>
+                <span>Braindump</span>
+            </a>
+        </div>
+
+        <!-- flex-1 tells the element to grow and fill all remaining space in a flex container. -->
+        <div class="flex-1 p-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
   
-  <!-- Always shown: Navigation Buttons -->
-  <div class="flex flex-col  h-screen w-1/6 mt-4">
-      <a href="/" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
-        <i data-lucide="home" class="w-5 h-5"></i>
-        <span>Home</span>
-      </a>
-      <a href="{% url 'syllabus_home'%}" class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
-        <i data-lucide="book-open" class="w-5 h-5"></i>
-        <span>Syllabus</span>
-      </a>
-      <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
-        <i data-lucide="check-square" class="w-5 h-5"></i>
-        <span>To Do</span>
-      </a>
-      <a class="flex items-center gap-2 px-3 py-1 m-3 border-b-4 border-b-blue-600 rounded-2xl hover:border-blue-950">
-        <i data-lucide="brain" class="w-5 h-5"></i>
-        <span>Braindump</span>
-      </a>
-
-  </div>
-      
-
-
-  	
-
-  <!-- Only page-specific content goes here -->
-  {% block content %}
-  {% endblock %}
-
+  
   <!-- lucide icons  -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
